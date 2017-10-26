@@ -23,7 +23,7 @@ import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
 @EntityListeners(AuditingEntityListener.class)
-@JsonIgnoreProperties(value = {"createdAt", "updatedAt"},allowGetters = true)
+@JsonIgnoreProperties(value = {"createdAt", "updatedAt"})
 public class Modality {
 
     @Id

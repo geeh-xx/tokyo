@@ -28,7 +28,7 @@ import com.olympiad.tokyo.enumeration.Stage;
 
 @Entity
 @EntityListeners(AuditingEntityListener.class)
-@JsonIgnoreProperties(value = {"createdAt", "updatedAt"},allowGetters = true)
+@JsonIgnoreProperties(value = {"createdAt", "updatedAt"})
 public class Competition{
 
     @Id

@@ -16,6 +16,7 @@ import com.olympiad.tokyo.layer.CountryService;
 import com.olympiad.tokyo.model.Country;
 
 @RestController
+@RequestMapping("/api")
 public class CountryController {
 
 	private static final Logger logger = LoggerFactory.getLogger(CountryController.class);
@@ -25,13 +26,13 @@ public class CountryController {
 	
 	
 
-	@RequestMapping(value="/country", method=RequestMethod.GET)
+	@RequestMapping(value="/v1/country", method=RequestMethod.GET)
 	public ResponseEntity<List<Country>> getAllCountry(){
     	logger.info("Returning all the Countrys");
 		return new ResponseEntity<List<Country>>(service.getAll(), HttpStatus.OK);
 	}
 	
-	@RequestMapping(value = "/country", method = RequestMethod.POST)
+	@RequestMapping(value = "/v1/country", method = RequestMethod.POST)
    	public ResponseEntity<Country> save(@RequestBody Country payload){
     	logger.info("Payload to save " + payload);
 		return new ResponseEntity<Country>(service.saveCountry(payload), HttpStatus.OK);
