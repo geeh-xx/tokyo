@@ -31,7 +31,7 @@ public class CountryServiceImpl implements CountryService {
 
 	@Override
 	public boolean existCountry(String name) {
-		return countryRepository.existsByName(name.toLowerCase());
+		return countryRepository.existsByNameIgnoreCase(name);
 	}
 
 	@Override

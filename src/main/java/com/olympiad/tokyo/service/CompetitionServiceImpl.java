@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.olympiad.tokyo.dto.CompetitionDTO;
 import com.olympiad.tokyo.layer.CompetitionService;
 import com.olympiad.tokyo.model.Competition;
 import com.olympiad.tokyo.repository.CompetitionRepository;
@@ -16,8 +17,9 @@ public class CompetitionServiceImpl implements CompetitionService{
 	CompetitionRepository competitionRepository;
 	
 	@Override
-	public Competition saveCompetition(Competition competition) {
-		return competitionRepository.save(competition);
+	public Competition saveCompetition(CompetitionDTO competitionDTO) {
+		//return competitionRepository.save(competition);
+		return null;
 	}
 
 	@Override

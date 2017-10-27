@@ -7,5 +7,5 @@ import com.olympiad.tokyo.model.Country;
 
 @Repository("countryRepository")
 public interface CountryRepository extends JpaRepository<Country,Long> {
-	boolean existsByName (String name);
+	boolean existsByNameIgnoreCase (String name);
 }
