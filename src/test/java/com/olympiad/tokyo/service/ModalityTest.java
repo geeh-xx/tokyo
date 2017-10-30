@@ -1,4 +1,4 @@
-package com.olympiad.tokyo.model;
+package com.olympiad.tokyo.service;
 
 import static org.junit.Assert.assertEquals;
 import static org.mockito.Mockito.when;
@@ -11,6 +11,7 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.olympiad.tokyo.model.Modality;
 import com.olympiad.tokyo.repository.ModalityRepository;
 import com.olympiad.tokyo.service.ModalityServiceImpl;
 

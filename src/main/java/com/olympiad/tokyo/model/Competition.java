@@ -3,7 +3,6 @@ package com.olympiad.tokyo.model;
 import java.util.Date;
 import java.util.List;
 
-import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
@@ -17,11 +16,11 @@ import javax.persistence.ManyToOne;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
-import org.hibernate.validator.constraints.NotBlank;
 import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
+import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.olympiad.tokyo.enumeration.Stage;
 
@@ -51,11 +50,12 @@ public class Competition{
     @JoinColumn(name = "modality_id")
     private Modality modality;
     
-    @ManyToMany(cascade = CascadeType.ALL)
+    @ManyToMany
     @JoinTable(name = "competition_country", joinColumns = @JoinColumn(name = "competition_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "country_id", referencedColumnName = "id"))
+    @Column(nullable = false)
     private List<Country> countries;
     
-    @NotBlank
+    @Column(nullable = false)
     private Stage stage;
     
     @Column(nullable = false, updatable = false)
@@ -84,6 +84,7 @@ public class Competition{
 		this.local = local;
 	}
 
+	@JsonFormat(pattern = "dd/MM/yyyy HH:mm")
 	public Date getStart() {
 		return start;
 	}
@@ -92,6 +93,7 @@ public class Competition{
 		this.start = start;
 	}
 
+	@JsonFormat(pattern = "dd/MM/yyyy HH:mm")
 	public Date getFinish() {
 		return finish;
 	}

@@ -4,11 +4,11 @@ import java.util.Arrays;
 
 public enum Stage {
 
-	ELIMINATORIAS("eliminatorias"),
-	OITAVAS("oitavas de final "),
-	QUARTAS("quartas de final"),
-	SEMIFINAL("semifinal"),
-	FINAL("final");
+	ELIMINATORIAS("Eliminatorias"),
+	OITAVAS("Oitavas de Final "),
+	QUARTAS("Quartas de Final"),
+	SEMIFINAL("Semifinal"),
+	FINAL("Final");
 	
 	private String value;
 

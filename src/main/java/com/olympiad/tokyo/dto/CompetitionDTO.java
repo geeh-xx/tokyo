@@ -8,7 +8,6 @@ public class CompetitionDTO {
 
 	private String local;
 	private String modality;
-	
 	private String stage;
 	private String start;
 	private String finish;

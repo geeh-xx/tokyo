@@ -19,31 +19,35 @@ import org.springframework.data.annotation.CreatedDate;
 import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 
 @Entity
 @EntityListeners(AuditingEntityListener.class)
-@JsonIgnoreProperties(value = { "createdAt", "updatedAt" })
 public class Local {
 
+	
 	@Id
 	@GeneratedValue(strategy = GenerationType.AUTO)
+	@JsonIgnore
 	private Long id;
 
 	@NotBlank
 	private String name;
 
 	@OneToMany(mappedBy = "local", cascade = CascadeType.ALL)
+	@JsonIgnore
 	private List<Competition> competitions;
 
 	@Column(nullable = false, updatable = false)
 	@Temporal(value = TemporalType.TIMESTAMP)
 	@CreatedDate
+	@JsonIgnore
 	private Date createdAt;
 
 	@Column(nullable = false)
 	@Temporal(value = TemporalType.TIMESTAMP)
 	@LastModifiedDate
+	@JsonIgnore
 	private Date updatedAt;
 
 	public Local() {

@@ -1,7 +1,8 @@
-package com.olympiad.tokyo.model;
+package com.olympiad.tokyo.service;
 
-import static org.junit.Assert.*;
-import static org.mockito.Mockito.*;
+import static org.junit.Assert.assertEquals;
+import static org.mockito.Mockito.when;
+
 import org.junit.Before;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -10,6 +11,7 @@ import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
+import com.olympiad.tokyo.model.Country;
 import com.olympiad.tokyo.repository.CountryRepository;
 import com.olympiad.tokyo.service.CountryServiceImpl;
 
