@@ -1,16 +1,18 @@
 package com.olympiad.tokyo.dto;
 
-import java.util.Date;
+import java.util.List;
+
+import com.olympiad.tokyo.model.Country;
 
 public class CompetitionDTO {
 
 	private String local;
 	private String modality;
-	private String countrieOne;
-	private String countrieTwo;
+	
 	private String stage;
 	private String start;
 	private String finish;
+	private List<Country> countries;
 	
 	public String getLocal() {
 		return local;
@@ -23,18 +25,6 @@ public class CompetitionDTO {
 	}
 	public void setModality(String modality) {
 		this.modality = modality;
-	}
-	public String getCountrieOne() {
-		return countrieOne;
-	}
-	public void setCountrieOne(String countrieOne) {
-		this.countrieOne = countrieOne;
-	}
-	public String getCountrieTwo() {
-		return countrieTwo;
-	}
-	public void setCountrieTwo(String countrieTwo) {
-		this.countrieTwo = countrieTwo;
 	}
 	public String getStage() {
 		return stage;
@@ -53,6 +43,12 @@ public class CompetitionDTO {
 	}
 	public void setFinish(String finish) {
 		this.finish = finish;
+	}
+	public List<Country> getCountries() {
+		return countries;
+	}
+	public void setCountries(List<Country> countries) {
+		this.countries = countries;
 	}
 	
 	

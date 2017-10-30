@@ -37,4 +37,7 @@ public class CompetitionServiceImpl implements CompetitionService{
 		competitionRepository.delete(id);
 	}
 
+	public Competition save(Competition competition){
+		return competitionRepository.save(competition);
+	}
 }

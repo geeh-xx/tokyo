@@ -33,10 +33,10 @@ public class CompetitionController {
 	}
 	
 	@RequestMapping(value = "/v1/competition", method = RequestMethod.POST)
-   	public ResponseEntity<String> save(@RequestBody CompetitionDTO payload){
+   	public ResponseEntity<CompetitionDTO> save(@RequestBody CompetitionDTO payload){
     	logger.info("Payload to save " + payload);
 		//return new ResponseEntity<Country>(service.saveCountry(payload), HttpStatus.OK);
-		return new ResponseEntity<String>("OK", HttpStatus.OK);
+		return new ResponseEntity<CompetitionDTO>(payload, HttpStatus.OK);
    	}
 	
 }

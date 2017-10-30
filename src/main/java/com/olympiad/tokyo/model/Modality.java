@@ -1,7 +1,7 @@
 package com.olympiad.tokyo.model;
 
 import java.util.Date;
-import java.util.Set;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -34,7 +34,7 @@ public class Modality {
     private String name;
 
     @OneToMany(mappedBy = "modality", cascade = CascadeType.ALL)
-    private Set<Competition> competitions;
+    private List<Competition> competitions;
     
     @Column(nullable = false, updatable = false)
     @Temporal(value = TemporalType.TIMESTAMP)
@@ -46,6 +46,15 @@ public class Modality {
     @LastModifiedDate
     private Date updatedAt;
 
+	public Modality() {
+		super();
+	}
+
+	public Modality(String name) {
+		super();
+		this.name = name;
+	}
+    
 	public Long getId() {
 		return id;
 	}
@@ -62,11 +71,11 @@ public class Modality {
 		this.name = name;
 	}
 
-	public Set<Competition> getCompetitions() {
+	public List<Competition> getCompetitions() {
 		return competitions;
 	}
 
-	public void setCompetitions(Set<Competition> competitions) {
+	public void setCompetitions(List<Competition> competitions) {
 		this.competitions = competitions;
 	}
 

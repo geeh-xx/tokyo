@@ -29,20 +29,20 @@ public class CountryTest {
 	
 	
 	@Test
-	public void saveCountry(){
+	public void testSaveOrReturnContry(){
 		Country country = new Country("Brazil");
-		when(countryRepository.save(country)).thenReturn(country);
-		Country result = countryRepository.save(country);
+		when(countryServiceImpl.saveOrReturnContry(country)).thenReturn(country);
+		Country result = countryServiceImpl.saveOrReturnContry(country);
 		assertEquals("Brazil", result.getName());
 		
-		Country country3 = new Country("teste");
-
-		when(countryServiceImpl.existCountry(matches("Brazil"))).thenReturn(true);
-		when(countryServiceImpl.saveCountry(country3)).thenReturn(null);
-
-		Country country5 = new Country("teste");
-
+	}
+	
+	@Test
+	public void testFindCountryByName(){
+		Country country = new Country("France");
+		when(countryServiceImpl.findCountryByName("France")).thenReturn(country);
+		Country result = countryServiceImpl.findCountryByName(country.getName());
+		assertEquals("France", result.getName());
 		
-		assertNull(countryServiceImpl.saveCountry(country5));
 	}
 }

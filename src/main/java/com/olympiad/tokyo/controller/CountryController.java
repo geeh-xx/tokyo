@@ -24,7 +24,6 @@ public class CountryController {
 	@Autowired
 	private CountryService service;
 	
-	
 
 	@RequestMapping(value="/v1/country", method=RequestMethod.GET)
 	public ResponseEntity<List<Country>> getAllCountry(){
@@ -35,7 +34,7 @@ public class CountryController {
 	@RequestMapping(value = "/v1/country", method = RequestMethod.POST)
    	public ResponseEntity<Country> save(@RequestBody Country payload){
     	logger.info("Payload to save " + payload);
-		return new ResponseEntity<Country>(service.saveCountry(payload), HttpStatus.OK);
+		return new ResponseEntity<Country>(service.saveOrReturnContry(payload), HttpStatus.OK);
    	}
 	
 }

@@ -9,18 +9,28 @@ import com.olympiad.tokyo.repository.ModalityRepository;
 
 @Service("modalityService")
 public class ModalityServiceImpl implements ModalityService{
-
 	@Autowired
+	
 	private ModalityRepository modalityRepository;
 	
-	@Override
-	public Modality saveModality(Modality modality) {
+	private Modality saveModality(Modality modality) {
 		return modalityRepository.save(modality);
 	}
 
 	@Override
-	public boolean existModaity(String name) {
-		return modalityRepository.existsByName(name);
+	public boolean existModality(String name) {
+		return modalityRepository.existsByNameIgnoreCase(name);
 	}
+
+	@Override
+	public Modality findModalityByName(String name) {
+		return modalityRepository.findByNameIgnoreCase(name);
+	}
+	
+	@Override
+	public Modality saveOrReturnModaliy(Modality modality) {
+		return existModality(modality.getName()) ? findModalityByName(modality.getName()) : saveModality(modality); 
+	}
+
 
 }

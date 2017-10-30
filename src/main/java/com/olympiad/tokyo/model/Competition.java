@@ -1,7 +1,7 @@
 package com.olympiad.tokyo.model;
 
 import java.util.Date;
-import java.util.Set;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Column;
@@ -35,8 +35,9 @@ public class Competition{
     @GeneratedValue(strategy = GenerationType.AUTO)
     private Long id;
     
-    @NotBlank
-    private String local;
+	@ManyToOne
+    @JoinColumn(name = "local_id")
+    private Local local;
     
     @Column(nullable = false)
     @Temporal(TemporalType.TIMESTAMP)
@@ -52,7 +53,7 @@ public class Competition{
     
     @ManyToMany(cascade = CascadeType.ALL)
     @JoinTable(name = "competition_country", joinColumns = @JoinColumn(name = "competition_id", referencedColumnName = "id"), inverseJoinColumns = @JoinColumn(name = "country_id", referencedColumnName = "id"))
-    private Set<Country> countries;
+    private List<Country> countries;
     
     @NotBlank
     private Stage stage;
@@ -75,11 +76,11 @@ public class Competition{
 		this.id = id;
 	}
 
-	public String getLocal() {
+    public Local getLocal() {
 		return local;
 	}
 
-	public void setLocal(String local) {
+	public void setLocal(Local local) {
 		this.local = local;
 	}
 
@@ -107,11 +108,11 @@ public class Competition{
 		this.modality = modality;
 	}
 
-	public Set<Country> getCountries() {
+	public List<Country> getCountries() {
 		return countries;
 	}
 
-	public void setCountries(Set<Country> countries) {
+	public void setCountries(List<Country> countries) {
 		this.countries = countries;
 	}
 
@@ -136,6 +137,13 @@ public class Competition{
         String result = String.format(
                 "Competition [id=%d, local='%s', stage='%a']%n",
                 id, local, stage);
+        
+        if (local != null) {
+			result +=  String.format(
+                    "Local[id=%d, name='%s']%n",
+                    local.getId(), local.getName());
+		}
+        
         if (countries != null) {
             for(Country country : countries) {
                 result += String.format(

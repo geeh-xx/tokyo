@@ -3,13 +3,14 @@ package com.olympiad.tokyo.model;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.EntityListeners;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
 import javax.persistence.Temporal;
 import javax.persistence.TemporalType;
 
@@ -19,45 +20,41 @@ import org.springframework.data.annotation.LastModifiedDate;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
-import com.fasterxml.jackson.annotation.JsonInclude;
-import com.fasterxml.jackson.annotation.JsonInclude.Include;
 
 @Entity
 @EntityListeners(AuditingEntityListener.class)
-@JsonIgnoreProperties(value = {"createdAt", "updatedAt"})
-@JsonInclude(Include.NON_NULL)
-public class Country {
+@JsonIgnoreProperties(value = { "createdAt", "updatedAt" })
+public class Local {
 
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    private Long id;
-    
-    @NotBlank
-    private String name;
-    
-    @ManyToMany(mappedBy = "countries")
-    private List<Competition> competitions;
-    
-    @Column(nullable = false, updatable = false)
-    @Temporal(TemporalType.TIMESTAMP)
-    @CreatedDate
-    private Date createdAt;
+	@Id
+	@GeneratedValue(strategy = GenerationType.AUTO)
+	private Long id;
 
-    @Column(nullable = false)
-    @Temporal(TemporalType.TIMESTAMP)
-    @LastModifiedDate
-    private Date updatedAt;
+	@NotBlank
+	private String name;
 
-    
-    public Country(){
-    	super();
-    }
+	@OneToMany(mappedBy = "local", cascade = CascadeType.ALL)
+	private List<Competition> competitions;
 
-    public Country(String name){
-    	super();
-    	this.name = name;
-    }
-    
+	@Column(nullable = false, updatable = false)
+	@Temporal(value = TemporalType.TIMESTAMP)
+	@CreatedDate
+	private Date createdAt;
+
+	@Column(nullable = false)
+	@Temporal(value = TemporalType.TIMESTAMP)
+	@LastModifiedDate
+	private Date updatedAt;
+
+	public Local() {
+		super();
+	}
+
+	public Local(String name) {
+		super();
+		this.name = name;
+	}
+
 	public Long getId() {
 		return id;
 	}
@@ -97,5 +94,5 @@ public class Country {
 	public void setUpdatedAt(Date updatedAt) {
 		this.updatedAt = updatedAt;
 	}
-	
+
 }

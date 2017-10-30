@@ -21,12 +21,8 @@ public class CountryServiceImpl implements CountryService {
 		return countryRepository.findOne(id);
 	}
 
-	@Override
-	public Country saveCountry(Country country) {
-		if (!existCountry(country.getName())) {
-			return countryRepository.save(country);
-		}
-		return null;
+	private Country saveCountry(Country country) {
+		return countryRepository.save(country);
 	}
 
 	@Override
@@ -49,6 +45,14 @@ public class CountryServiceImpl implements CountryService {
 		return countryRepository.findAll();
 	}
 	
+	@Override
+	public Country findCountryByName(String name){
+		return countryRepository.findByNameIgnoreCase(name);
+	}
 	
+	@Override
+	public Country saveOrReturnContry(Country country){
+		return existCountry(country.getName()) ? findCountryByName(country.getName()) : saveCountry(country); 
+	}
 
 }

@@ -8,5 +8,6 @@ import com.olympiad.tokyo.model.Modality;
 
 @Repository("modalityRepository")
 public interface ModalityRepository extends JpaRepository<Modality,Long>{
-	boolean existsByName (String name);
+	boolean existsByNameIgnoreCase (String name);
+	Modality findByNameIgnoreCase (String name);
 }
