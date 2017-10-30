@@ -3,7 +3,7 @@
 # Awesome README [![Awesome](https://cdn.rawgit.com/sindresorhus/awesome/d7305f38d29fed78fa85652e3a63e154dd8e8829/media/badge.svg)](https://github.com/sindresorhus/awesome)
 > O melhor README(ou tentativa) que você ira ver hoje.
 
-Tokyo: Desafio criado para o processo seletivo da CI&T
+Tokyo: Desafio criado para o processo seletivo da CI&T que diga-se de passagem estou muito empolgado, muito por conta do desafio tecnico e tambem por poder ter a oportunidade de ingressar na CI&T.
 
 ## Getting Started
 
