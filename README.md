@@ -44,13 +44,13 @@ Com o body da requisa em formato JSON
 }
 ```
 <img src="printLogin.png" align="right" />
-
+<br>
 Obs: O método "static void addAuthentication()" gera um novo TOKEN cada vez que a aplicação é iniciada. Isso porquê valores estáticos são inicializados quando uma classe é criada. Dessa forma, um token JWT só é válido enquanto a aplicação não é reiniciada!
 
 No header da resposta dessa requisição temos nosso token,agora para utilizar os endpoint's, agora precisamos enviar no header da requisição nosso token incluindo o cabeçalho Authorization com o JWT que recebemos quando realizamos a autenticação com sucesso.
 
 <img src="loginsucess.png" align="right" />
-
+<br>
 Para o cadastro da competição alem do nosso amado token, tambem devemos fazer um requisão POST no endpoint
 
 ```
@@ -84,7 +84,7 @@ Também vale ressaltar que so e criado um novo Pais,Local ou competição caso e
 Abaixo um exemplo de retorno,caso tenha sucesso.
 
 <img src="retornosucess.png" align="right" />
-
+<br>
 A regra e a mesma para a listagem das competições, basta fazer um requisão GET passando o token no header para
 
 ```
@@ -98,9 +98,9 @@ localhost:8080/api/v1/competition/futebol
 ```
 
 <img src="retornoall.png" align="right" />
-
+<br>
 <img src="retornomodality.png" align="right" />
-
+<br>
 ### Documentação
 
 Foi adicionado um swagger mapeando as rotas disponiveis, ele esta acessivel em: 
@@ -112,10 +112,11 @@ http://localhost:8080/swagger-ui.html
 
 <img src="swagger.png" align="right" />
 
-
+<br><br>
 ### Observaçes
 
 Não implementei 100% do que queria e como queria por questes de tempo,conversei com a Fabiana sobre isto.
 Queria cobrir com mais testes,organizar melhor o codigo e implementar outras funcionalidades.
 Adotei a solução que e mais comum e agradavel que me senti mais a vontade para desenvolver.
 Toda critica e sempre bem vinda.
+Obs:Obs: Não sei pq os prints ficaram tão grandes!
