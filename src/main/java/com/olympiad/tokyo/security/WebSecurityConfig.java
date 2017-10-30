@@ -17,7 +17,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter{
 	protected void configure(HttpSecurity httpSecurity) throws Exception {
 		httpSecurity.csrf().disable().authorizeRequests()
 			.antMatchers(HttpMethod.POST, "/api/login").permitAll()
-			.anyRequest().authenticated()
+			.antMatchers("/api/**").authenticated()
 			.and()
 			
 			// filtra requisições de login
